@@ -1,17 +1,14 @@
+import React from 'react';
 import './App.css';
-import elephant from "./images/elephant.jpeg";
 
-function App(props) {
-  const { data } = props; // Destructure the data prop
-
+function App({ images }) { 
   return (
-    <div className="App">
-      <h1>Elephant Images</h1>
-      <div className="image-container">
-        {data.map((item) => ( // Use data from props instead of calling imageData()
-          <img key={item.id} src={item.img} alt={`Elephant ${item.id}`} />
-        ))}
-      </div>
+    <div className="image-gallery">
+      {images.map((img) => (
+        <div key={img.id} className="image-container">
+          <img src={img.img} alt={`img-${img.id}`} className="image" />
+        </div>
+      ))}
     </div>
   );
 }
